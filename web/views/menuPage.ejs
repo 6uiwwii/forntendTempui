@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Page Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Kanit', sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    .menu-page {
+        width: 375px;
+        min-height: 812px;
+        margin: 20px auto;
+        background-color: #5F8FAA;
+        border: 1px solid #ccc;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+
+    .page-header {
+        height: 50px;
+        background-color: #74503E;
+        width: 100%;
+        display: flex;
+            align-items: center; /* ⭐️ 2. จัดกลางแนวตั้ง */
+            padding: 0 15px;
+            box-sizing: border-box;
+    }
+
+    .header-icons {
+        margin-left: auto;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .icon-block {
+        width: 25px;
+        height: 25px; 
+        background-color: #D9D9D9;
+        border-radius: 5px;
+    }
+    .page-content {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .logo-container {
+        text-align: center;
+        color: white;
+        
+
+    }
+    .logo-container img {
+        width: 180px;
+        height: auto;
+    }
+
+    .logo-container h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .logo-container p {
+        font-size: 0.9em;
+        margin: -5px 0 0 0;
+        opacity: 0.9;
+    }
+
+    .card {
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    }
+
+    .info-card p {
+        margin: 5px 0;
+        color: #333;
+        font-size: 1em;
+        line-height: 1.5;
+    }
+    .card {
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        padding: 20px; 
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .info-card {
+        padding: 0;
+        overflow: hidden;
+        position: relative; 
+
+    }
+
+    .slider-track {
+        display: flex; 
+        transition: transform 0.6s ease-in-out; 
+    }
+
+    .slide {
+        width: 100%;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        padding: 20px;
+
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .slide-detail {
+        color: #333;
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    .slide-detail p {
+        margin: 5px 0;
+    }
+
+    .slide img {
+        max-width: 100px; 
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .section-label {
+        color: white;
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-left: 10px;
+        margin-bottom: 8px;
+    }
+
+    .pet-card {
+        min-height: 80px; 
+    }
+
+    .nav-button {
+        display: flex;
+        align-items: center; 
+        
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        padding: 15px 25px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        
+        text-decoration: none; 
+        color: #4A4A4A;
+        font-size: 2.2em; 
+        font-weight: bold;
+        
+        min-height: 70px;
+    }
+
+    .nav-button span {
+        flex-grow: 1; 
+        text-align: center; 
+    }
+    .nav-button img {
+            height: 110px;
+            width: auto;
+            flex-shrink: 0;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 28px;
+            transition: .4s;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #5F8FAA;
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(22px);
+        }
+
+</style>
+</head>
+<body>
+    <div class="menu-page">
+        
+            <header class="page-header">
+            <div class="header-icons">
+                <div class="icon-block"></div> <!--logout-->
+                <label class="toggle-switch">
+                        <input type="checkbox" checked> <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </header>
+
+
+        <main class="page-content">
+
+            <div class="logo-container">
+                <img src="/assets/Badge.png">
+            </div>
+
+            <div class="card info-card" id="greeting-slider">
+    <div class="slider-track" id="slider-track">
+        
+        <div class="slide">
+            <div class="slide-detail">
+            <p>สมาชิกคนที่ 1</p>
+            <p>นายนราธร อู่สุวรรณ์</p>
+            <p>67070242</p>
+            </div>
+            <div>
+                <img src="/assets/242.png">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-detail">
+            <p>สมาชิกคนที่ 2</p>
+            <p>นายภัทรพล พรหมทอง</p>
+            <p>67070264</p>
+            </div>
+            <div>
+                <img src="/assets/264.png">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="slide-detail">
+            <p>สมาชิกคนที่ 3</p>
+            <p>นางสาวสายชล ไชยมูล</p>
+            <p>67070283</p>
+            </div>
+            <div>
+                <img src="/assets/283.png">
+            </div>
+        </div>
+
+        </div>
+        </div>
+            <a href="#" class="nav-button">
+                <img src="/assets/Petboard.png">
+            </a>
+
+            <a href="#" class="nav-button">
+                <img src="/assets/fortune.png">
+            </a>
+
+            <a href="#" class="nav-button">
+                <img src="/assets/log.png">
+            </a>
+
+            <a href="#" class="nav-button">
+                <img src="/assets/setting.png">
+            </a>
+
+
+        </main>
+    </div>
+<script>
+
+    window.addEventListener('load', function() {
+        
+        const track = document.getElementById('slider-track');
+        
+
+        if (track) {
+            const slides = track.querySelectorAll('.slide');
+            const slideCount = slides.length;
+            let currentSlide = 0;
+
+
+            function goToSlide(slideIndex) {
+
+                const slideWidth = slides[0].offsetWidth; 
+
+                track.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+            }
+
+            function nextSlide() {
+                currentSlide++; 
+                if (currentSlide >= slideCount) {
+                    currentSlide = 0; 
+                }
+                goToSlide(currentSlide);
+            }
+
+            setInterval(nextSlide, 5000); 
+
+            window.addEventListener('resize', function() {
+                goToSlide(currentSlide);
+            });
+        }
+
+
+    });
+</script>
+</body>
+</html>
